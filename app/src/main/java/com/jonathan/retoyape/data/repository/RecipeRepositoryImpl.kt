@@ -29,6 +29,6 @@ class RecipeRepositoryImpl @Inject constructor(
     }
 
     override suspend fun insertAllRecipes(recipes: List<Recipe>?) {
-        localDataSource.insertAllRecipes(recipes.toListRecipeEntity())
+        localDataSource.insertAllRecipes(recipes?.toListRecipeEntity())
     }
 }
