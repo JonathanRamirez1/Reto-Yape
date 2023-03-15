@@ -3,6 +3,8 @@ package com.jonathan.retoyape.data.datasource.local.entity
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.jonathan.retoyape.data.datasource.remote.model.RecipeModel
+import com.jonathan.retoyape.domain.model.Recipe
 
 @Entity(tableName = "recipes_table")
 data class RecipeEntity(
@@ -15,3 +17,15 @@ data class RecipeEntity(
     @ColumnInfo(name = "latitude") val latitude: Long? = null,
     @ColumnInfo(name = "longitude") val longitude: Long? = null,
 )
+
+fun RecipeEntity.toRecipes() = Recipe(
+    this.id,
+    this.image,
+    this.name,
+    this.description,
+    this.locationName,
+    this.latitude,
+    this.longitude
+)
+
+fun List<RecipeEntity>.toListRecipes() = map { it.toRecipes() }
