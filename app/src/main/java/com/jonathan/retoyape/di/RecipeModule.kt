@@ -1,5 +1,7 @@
 package com.jonathan.retoyape.di
 
+import com.jonathan.retoyape.data.datasource.local.RecipeLocalDataSource
+import com.jonathan.retoyape.data.datasource.local.RecipeLocalDataSourceImpl
 import com.jonathan.retoyape.data.datasource.remote.network.RecipeRemoteDatasource
 import com.jonathan.retoyape.data.datasource.remote.network.RecipeRemoteDatasourceImpl
 import com.jonathan.retoyape.data.repository.RecipeRepository
