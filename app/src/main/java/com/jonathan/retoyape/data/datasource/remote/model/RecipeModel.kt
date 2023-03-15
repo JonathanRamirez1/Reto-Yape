@@ -3,6 +3,7 @@ package com.jonathan.retoyape.data.datasource.remote.model
 import com.google.gson.annotations.SerializedName
 
 data class RecipeModel(
+    @SerializedName("id") val id: Long? = null,
     @SerializedName("image") val image: String? = null,
     @SerializedName("name") val name: String? = null,
     @SerializedName("description") val description: String? = null,

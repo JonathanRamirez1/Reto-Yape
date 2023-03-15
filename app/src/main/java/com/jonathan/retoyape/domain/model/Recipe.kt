@@ -1,6 +1,7 @@
 package com.jonathan.retoyape.domain.model
 
 data class Recipe(
+    val id: Long? = null,
     val image: String? = null,
     val name: String? = null,
     val description: String? = null,

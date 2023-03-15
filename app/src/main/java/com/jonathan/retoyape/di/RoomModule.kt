@@ -2,6 +2,8 @@ package com.jonathan.retoyape.di
 
 import android.content.Context
 import androidx.room.Room
+import com.jonathan.retoyape.data.datasource.local.database.RecipeDatabase
+import com.jonathan.retoyape.utils.Constants.RECIPES_DATABASE_NAME
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
