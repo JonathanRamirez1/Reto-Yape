@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import coil.imageLoader
@@ -17,6 +18,10 @@ class RecipeDetailFragment : Fragment() {
 
     private lateinit var binding: FragmentRecipeDetailBinding
     private lateinit var navController: NavController
+
+    private var locationName: String? = null
+    private var latitude: Double? = null
+    private var longitude: Double? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentRecipeDetailBinding.inflate(inflater, container, false)
@@ -40,12 +45,22 @@ class RecipeDetailFragment : Fragment() {
     private fun launchRecipeMapFragment(view: View) {
         navController = Navigation.findNavController(view)
         binding.floatingButtonLocation.setOnClickListener {
-            navController.navigate(R.id.recipeMapFragment)
+            navController.navigate(
+                R.id.recipeMapFragment,
+                bundleOf(
+                    "locationName" to locationName,
+                    "latitude" to latitude,
+                    "longitude" to longitude,
+                )
+            )
         }
     }
 
     private fun setContent() {
         arguments?.let { bundle ->
+            locationName = bundle.getString("locationName")
+            latitude = bundle.getDouble("latitude")
+            longitude = bundle.getDouble("longitude")
             binding.apply {
                 val imageRequest = context?.let {
                     ImageRequest.Builder(it)
