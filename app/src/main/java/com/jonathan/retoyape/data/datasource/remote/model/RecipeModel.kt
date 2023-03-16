@@ -9,8 +9,8 @@ data class RecipeModel(
     @SerializedName("name") val name: String? = null,
     @SerializedName("description") val description: String? = null,
     @SerializedName("location_name") val locationName: String? = null,
-    @SerializedName("latitude") val latitude: Long? = null,
-    @SerializedName("longitude") val longitude: Long? = null,
+    @SerializedName("latitude") val latitude: Double? = null,
+    @SerializedName("longitude") val longitude: Double? = null,
 )
 
 fun RecipeModel.toRecipes() = Recipe(

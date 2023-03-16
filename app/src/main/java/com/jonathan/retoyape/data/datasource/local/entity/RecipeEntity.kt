@@ -14,8 +14,8 @@ data class RecipeEntity(
     @ColumnInfo(name = "name") val name: String? = null,
     @ColumnInfo(name = "description") val description: String? = null,
     @ColumnInfo(name = "location_name") val locationName: String? = null,
-    @ColumnInfo(name = "latitude") val latitude: Long? = null,
-    @ColumnInfo(name = "longitude") val longitude: Long? = null,
+    @ColumnInfo(name = "latitude") val latitude: Double? = null,
+    @ColumnInfo(name = "longitude") val longitude: Double? = null,
 )
 
 fun RecipeEntity.toRecipes() = Recipe(
