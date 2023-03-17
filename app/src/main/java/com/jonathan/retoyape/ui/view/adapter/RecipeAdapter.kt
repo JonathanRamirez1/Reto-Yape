@@ -15,11 +15,11 @@ import com.jonathan.retoyape.R
 import com.jonathan.retoyape.databinding.ItemRecipesBinding
 import com.jonathan.retoyape.domain.model.Recipe
 
-class RecipeAdapter(private val itemRecipes: ArrayList<Recipe>) :
+class RecipeAdapter(val itemRecipes: ArrayList<Recipe>) :
     RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
 
-    private lateinit var context: Context
-    private lateinit var navController: NavController
+     lateinit var context: Context
+     lateinit var navController: NavController
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeAdapter.RecipeViewHolder {
         context = parent.context
@@ -58,7 +58,7 @@ class RecipeAdapter(private val itemRecipes: ArrayList<Recipe>) :
         notifyItemInserted(itemRecipes.size - 1)
     }
 
-    inner class RecipeViewHolder(private val binding: ItemRecipesBinding) :
+     class RecipeViewHolder(private val binding: ItemRecipesBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(recipes: Recipe, context: Context) {
             val imageRequest = ImageRequest.Builder(context)
