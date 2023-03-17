@@ -117,6 +117,7 @@ dependencies {
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.3"
     testImplementation "com.google.truth:truth:1.0.1"
     testImplementation "io.mockk:mockk:1.12.2"
+    testImplementation "org.mockito:mockito-inline:3.12.4"
 
     // Instrumented Unit Tests
     androidTestImplementation "junit:junit:4.13.2"
