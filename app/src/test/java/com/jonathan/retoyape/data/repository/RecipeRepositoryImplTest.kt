@@ -16,7 +16,6 @@ import org.mockito.BDDMockito.given
 import org.mockito.Mockito.*
 
 @ExperimentalCoroutinesApi
-@RunWith(JUnit4::class)
 class RecipeRepositoryImplTest {
 
     private val remoteDataSource = mock(RecipeRemoteDatasource::class.java)
@@ -46,8 +45,6 @@ class RecipeRepositoryImplTest {
                 repository.getAllRecipesFromRemote()
             } catch (e: NoInternetException) {
                 fail("Expected NoInternetException but no exception was thrown")
-            } catch (e: Exception) {
-                fail("Expected NoInternetException but got ${e::class.simpleName}")
             }
         }
     }
