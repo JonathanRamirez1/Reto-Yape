@@ -1,6 +1,7 @@
 package com.jonathan.retoyape.domain.model
 
 import com.jonathan.retoyape.data.datasource.local.entity.RecipeEntity
+import com.jonathan.retoyape.data.datasource.remote.model.RecipeModel
 
 data class Recipe(
     val id: Long? = null,
@@ -12,7 +13,7 @@ data class Recipe(
     val longitude: Double? = null,
 )
 
-fun Recipe.toRecipes() = RecipeEntity(
+fun Recipe.toRecipeEntity() = RecipeEntity(
     this.id,
     this.image,
     this.name,
@@ -22,4 +23,16 @@ fun Recipe.toRecipes() = RecipeEntity(
     this.longitude
 )
 
-fun List<Recipe>.toListRecipeEntity() = map { it.toRecipes() }
+fun List<Recipe>.toListRecipeEntity() = map { it.toRecipeEntity() }
+
+fun Recipe.toRecipeModel() = RecipeModel(
+    this.id,
+    this.image,
+    this.name,
+    this.description,
+    this.locationName,
+    this.latitude,
+    this.longitude
+)
+
+fun List<Recipe>.toListRecipeModel() = map { it.toRecipeModel() }
